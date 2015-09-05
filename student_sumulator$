@@ -1,0 +1,261 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package functionLibraries;
+
+/**
+ *
+ * @author Gerry Dreamer
+ */import java.util.Scanner;
+import java.util.Random;
+import javax.swing.JOptionPane;
+public class studentSimulation {
+    public static void main(String args[]){
+       students_s s = new students_s();
+       s.display();
+    }
+}
+class students_s {
+    Random r = new Random();
+    Scanner in = new Scanner(System.in);
+    private  int k,g,mult;
+    private   int correctCount = 0,wrongCount = 0;
+    private int val,correctMod,wrongMod;
+    private static  int grade;
+   private  String s,much,times;
+   private int operator;
+   // private String s = in.nextLine();
+    void display(){
+     
+      
+      
+        System.out.printf("\n Welcome to the Computer Assisted Instruction Panel\nAnswer the following questions intelligently \n");
+        System.out.println(" What is your name\n");
+          String s = in.nextLine();
+         
+          System.out.println("Enter the level of your grade as either 1,2or 3");
+           grade = in.nextInt();
+          if(grade==1)
+              grade_1();
+          else if(grade==2)
+              grade_2();
+          else if(grade==3)
+              grade_3();
+      
+      
+    }
+    void grade_1(){
+         System.out.println("Enter the values 1-addition 2-subtraction 3-multiplication 4-division 5-random_Values");
+         operator = in.nextInt();
+        for (int counter = 1; counter <= 10; counter++){
+              k = 1 + r.nextInt(10);
+         g = 1 + r.nextInt(10); 
+        operator();
+         
+            System.out.printf("\nHow much is %d %s %d?\n",k,times,g);
+        int val = in.nextInt();
+        if(val==mult){
+            System.out.println(response_method_correct());
+            System.out.println("The answer is "+mult);
+            correctCount+=1;
+        }
+        else
+        {
+             System.out.println( response_method_wrong()+"\nThe answer is "+mult);
+           wrongCount+=1;
+        }
+       }        
+       // System.out.printf("\nThe correct values are %d over %d\n", correctCount,10);
+       // System.out.printf("\nThe wrong values are %d over %d\n",wrongCount,10);
+      int  correctMod = percentage(correctCount);
+      int  wrongMod  = percentage(wrongCount);
+      if(correctMod >= 75 && correctMod <=100){
+          System.out.println(response_method_correct()+ "\n" +s+"\n You have earned "+correctMod+" percent of the correct values\nAnd "+wrongMod+" percent of the wrong values");
+      }
+      else
+      {
+          System.out.println(s+" You have earned "+wrongMod+" percent of the wrong values\n And "+correctMod+" percent of the correct values");
+          System.out.println(s + " Please ask your instructor for extra help.");
+          
+          
+          
+      } 
+    }
+    void grade_2(){
+         System.out.println("Enter the values 1-addition 2-subtraction 3-multiplication 4-division 5-random_Values");
+         operator = in.nextInt();
+         for (int counter = 1; counter <= 10; counter++){
+              k = 1 + r.nextInt(10);
+         g = 1 + r.nextInt(75); 
+        operator();
+         
+          mult = multiplication(k,g);
+            System.out.printf("\nHow much is %d %d %d?\n",k,times,g);
+        int val = in.nextInt();
+        if(val==mult){
+            System.out.println(response_method_correct());
+            System.out.println("The answer is "+mult);
+            correctCount+=1;
+        }
+        else
+        {
+             System.out.println( response_method_wrong()+"\nThe answer is "+mult);
+           wrongCount+=1;
+        }
+       }        
+       // System.out.printf("\nThe correct values are %d over %d\n", correctCount,10);
+       // System.out.printf("\nThe wrong values are %d over %d\n",wrongCount,10);
+      int  correctMod = percentage(correctCount);
+      int  wrongMod  = percentage(wrongCount);
+      if(correctMod >= 75 && correctMod <=100){
+          System.out.println(response_method_correct()+ "\n" +s+"\n You have earned "+correctMod+" percent of the correct values\nAnd "+wrongMod+" percent of the wrong values");
+      }
+      else
+      {
+          System.out.println(s+" You have earned "+wrongMod+" percent of the wrong values\n And "+correctMod+" percent of the correct values");
+          System.out.println(s + " Please ask your instructor for extra help.");
+          
+          
+          
+      }
+         
+    }
+    void grade_3(){
+         System.out.println("Enter the values 1-addition 2-subtraction 3-multiplication 4-division 5-random_Values");
+         operator = in.nextInt();
+         for (int counter = 1; counter <= 10; counter++){
+              k = 1 + r.nextInt(200);
+         g = 1 + r.nextInt(20); 
+        operator();
+         
+          mult = multiplication(k,g);
+            System.out.printf("\nHow much is %d %s %d?\n",k,times,g);
+        int val = in.nextInt();
+        if(val==mult){
+            System.out.println(response_method_correct());
+            System.out.println("The answer is "+mult);
+            correctCount+=1;
+        }
+        else
+        {
+             System.out.println( response_method_wrong()+"\nThe answer is "+mult);
+           wrongCount+=1;
+        }
+       }        
+       // System.out.printf("\nThe correct values are %d over %d\n", correctCount,10);
+       // System.out.printf("\nThe wrong values are %d over %d\n",wrongCount,10);
+      int  correctMod = percentage(correctCount);
+      int  wrongMod  = percentage(wrongCount);
+      if(correctMod >= 75 && correctMod <=100){
+          System.out.println(response_method_correct()+ "\n" +s+"\n You have earned "+correctMod+" percent of the correct values\nAnd "+wrongMod+" percent of the wrong values");
+      }
+      else
+      {
+          System.out.println(s+" You have earned "+wrongMod+" percent of the wrong values\n And "+correctMod+" percent of the correct values");
+          System.out.println(s + " Please ask your instructor for extra help.");
+          
+          
+          
+      }
+    }
+    void operator(){
+          switch(operator){
+             case 1:
+                 mult = addition(k,g);
+                 times = " + ";
+                 break;
+             case 2:
+                 mult = subtraction(k,g);
+                 times = " - ";
+                 break;
+             case 3:
+                 mult = multiplication(k,g);
+                  times = "x ";
+                 break;
+             case 4:
+                 mult = division(k,g);
+                  times = " / ";
+                 break;
+             case 5:
+                 mult = randomVal(k,g);
+                 if(randomVal(k,g)==multiplication(k,g))
+                 { times = " x ";}
+                 else if(randomVal(k,g)==division(k,g))
+                 { times = " / ";}
+                   else if(randomVal(k,g)==subtraction(k,g))
+                   {times = " - ";}
+                      else if (randomVal(k,g)==addition(k,g))
+                      {}
+                 //
+                 break;
+         }
+       
+    }
+     public int response_method_correct(){
+       int resp = 1 + r.nextInt(4);
+       if(resp==1)
+           System.out.println("Very good!");
+       else if(resp==2)
+            System.out.println("Excllent!");
+       else if(resp==3)
+            System.out.println("Nice work!");
+       else if(resp==4)
+            System.out.println("keep up the good work");
+      
+        return resp;
+   }
+   
+  public int  response_method_wrong(){
+       int respo = 1 + r.nextInt(4);
+       if(respo==1)
+            System.out.println("No. Please try again");
+       else if(respo==2)
+            System.out.println("Wrong. Try once more");
+       else if(respo==3)
+            System.out.println("Don't give up");
+       else if(respo==4)
+            System.out.println("No. Keep trying");
+       return respo;
+  }
+  public int multiplication(int w, int z){
+      int multip = w * z;
+      return multip;
+  }
+public int percentage(int p){
+    int per = (p*100)/10;
+    return per;
+}
+public int addition(int fe, int fo){
+   int sum = fe + fo;
+   return sum;
+}
+public int subtraction(int se, int so){
+    int sub = se - so;
+    return sub;
+}
+public int division(int de, int dee){
+    int div =(int) ((double) de / dee);
+    return div;
+}
+public int randomVal(int ra, int re){
+    int rand =1 + r.nextInt(4);
+    switch(rand){
+        case 1:
+         multiplication(ra,re);
+            break;
+        case 2:
+          addition(ra,re);
+            break;
+        case 3:
+            subtraction(ra,re);
+            break;
+        case 4:
+            division(ra,re);
+            break;
+    }
+    return rand;
+}
+}
