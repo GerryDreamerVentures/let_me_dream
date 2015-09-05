@@ -1,0 +1,117 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package functionLibraries;
+
+import popQuiz$.*;
+/**
+ *
+ * @author Gerry Dreamer
+ */import java.util.*;
+import java.io.File;
+import java.util.Formatter;
+import java.util.Arrays;
+public class AirlineBookingSoftwareSimulator_GerryDreamerVentures {
+    public static void main(String[]args){
+     ndege$ n = new ndege$();   
+    }
+}
+class ndege${
+    private Formatter x;
+    Random r = new Random();
+    Scanner input = new Scanner(System.in);
+    private boolean[] b = {false,false,false,false,false,false,false,false,false,false};
+    public ndege$(){
+      try{
+          x = new Formatter("C:\\Users\\Gerry Dreamer\\Desktop\\derek.html");
+            System.out.println("Press 1 for FirstClass and 2 for economy");
+         System.out.println("Both option contain five seats each");
+         
+        int w = input.nextInt();
+        if(w==1)
+        {
+             first();
+             close();
+        }
+        else
+        {
+              second();
+              close();
+        }
+      }catch(Exception e){
+          System.out.println("There was an error in file output:\nDreamer Error Console 0001_01");
+      }
+    }
+    void first(){
+        x.format("%s", "<html>");
+         x.format("<body bgcolor='cyan'>");
+        System.out.println("Welcome to Dreamer Airlines");
+        x.format("%s\n","<h1>Welcome to Dreamer Airlines</h1>");
+         x.format(" %s", "<table border='2' padding='2' background='blue' height='80%' width='80%'>");
+         x.format("<tr>");
+        for(int r = 1; r<=5; r++){
+            {
+                  System.out.printf("<th>Seat %d is %s</th>\n",r+1, b[r] ? "booked ":"empty");
+                   x.format("<td>Seat %d is %s</td>\n",r+1, b[r] ? "<p>booked </p>":"<p>empty</p>");
+            }
+        } x.format("</tr>");
+           x.format("<tr>"); // x.format("</table>");
+           //x.format("<table border='2' padding='2' background='blue' height='80%' width='80%'>");
+       for(int v=0; v<=5; v++){
+          
+        
+           System.out.println("Enter name");// x.format("<p>Enter name</p>");
+            String n = input.nextLine();
+            System.out.printf("\nHello %s\n",n); x.format("\n<td>Hello %s</td>\n",n);
+        b[v] = true;
+        System.out.printf("\n<td>%s %d</td>\n",b[v]? "You have now booked seat ":"we are sorry, you will not get seat",v+1);
+           x.format("\n<td>%s %d</td>\n",b[v]? "<p>You have now booked seat</p> ":"<p>we are sorry, you will not get seat</p>",v+1);
+           
+               
+       }
+     // boolean a = Arrays.equals(b,b);
+        x.format("</tr>");
+        x.format("</table>");
+         x.format("<body>");
+         x.format( "</html>");
+    }
+    void second(){
+        x.format("%s", "<html>");
+         x.format("<body bgcolor='cyan'>");
+        System.out.println("Welcome to Dreamer Airlines");
+        x.format("%s\n","<h1>Welcome to Dreamer Airlines</h1>");
+         x.format(" %s", "<table border='2' padding='2' background='blue' height='50%' width='50%'>");
+         x.format("<tr>");
+        for(int r = 1; r<=5; r++){
+            {
+                  System.out.printf("<th>Seat %d is %s</th>\n",r+6, b[r] ? "booked ":"empty");
+                   x.format("<td>Seat %d is %s</td>\n",r+6, b[r] ? "<p>booked </p>":"<p>empty</p>");
+            }
+        } x.format("</tr>");
+           x.format("<tr>"); // x.format("</table>");
+           //x.format("<table border='2' padding='2' background='blue' height='80%' width='80%'>");
+       for(int v=0; v<=5; v++){
+          
+        
+           System.out.println("Enter name");// x.format("<p>Enter name</p>");
+            String n = input.nextLine();
+            System.out.printf("\nHello %s\n",n); x.format("\n<td>Hello %s</td>\n",n);
+        b[v] = true;
+        System.out.printf("\n<td>%s %d</td>\n",b[v]? "You have now booked seat ":"we are sorry, you will not get seat",v+6);
+           x.format("\n<td>%s %d</td>\n",b[v]? "<p>You have now booked seat</p> ":"<p>we are sorry, you will not get seat</p>",v+6);
+       }
+        x.format("</tr>");
+        x.format("</table>");
+         x.format("<body>");
+         x.format( "</html>");
+       
+    }
+    void close(){
+        x.close();
+    }
+}
+//  System.out.println("Which seat do you want to book?");
+      //   int s = input.nextInt();
