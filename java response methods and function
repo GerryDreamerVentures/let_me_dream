@@ -1,0 +1,247 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package functionLibraries;
+
+/**
+ *
+ * @author Gerry Dreamer
+ */import java.util.Random;
+import java.util.Scanner;
+public class response_methods {
+    Random r = new Random();
+    Scanner input = new Scanner(System.in);
+    //the first two methods require a  declaration of the random method as r
+    //the method calls require zero arguments
+    public int response_method_correct(){
+       int resp = 1 + r.nextInt(4);
+       if(resp==1)
+           System.out.println("Very good!");
+       else if(resp==2)
+            System.out.println("Excllent!");
+       else if(resp==3)
+            System.out.println("Nice work!");
+       else if(resp==4)
+            System.out.println("keep up the good work");
+      
+        return resp;
+   }
+   
+  public int  response_method_wrong(){
+       int respo = 1 + r.nextInt(4);
+       if(respo==1)
+            System.out.println("No. Please try again");
+       else if(respo==2)
+            System.out.println("Wrong. Try once more");
+       else if(respo==3)
+            System.out.println("Don't give up");
+       else if(respo==4)
+            System.out.println("No. Keep trying");
+       return respo;
+  }
+  //the method caller should have two variables
+  public int multiplication(int w, int z){
+      int multip = w * z;
+      return multip;
+  }
+  //requires a single operator in the method calling
+  public int percentage(int p){
+    int per = (p*100)/10;
+    return per;
+}
+
+public int addition(int fe, int fo){
+   int sum = fe + fo;
+   return sum;
+}
+public int subtraction(int se, int so){
+    int sub = se - so;
+    return sub;
+}
+public int division(int de, int dee){
+    int div =(int) ((double) de / dee);
+    return div;
+}
+public int randomVal(int ra, int re){
+    int rand =1 + r.nextInt(4);
+    switch(rand){
+        case 1:
+         multiplication(ra,re);
+            break;
+        case 2:
+          addition(ra,re);
+            break;
+        case 3:
+            subtraction(ra,re);
+            break;
+        case 4:
+            division(ra,re);
+            break;
+    }
+    return rand;
+}
+public double distanceCalculation(double x1,double y1, double x2, double y2){
+    double dist = (y2 - y1)/(x2-x1);
+    return dist;
+}
+public double largest_number_four_val(double x, double y,double w, double z){
+    double large = Math.max(y, Math.max(x, Math.max(w, z)));
+    return large;
+}
+public int rollDice(){
+    int die1 = 1 + r.nextInt(6);
+    int die2 = 1 + r.nextInt(6);
+    int sum = die1+ die2;
+    System.out.printf("\n The sum is %d\n",sum);
+    return sum;
+}
+ public int win_message(){
+        int x = 1 + r.nextInt(2);
+        switch(x){
+            case 1:
+                System.out.println("You're up big");
+                break;
+            case 2:
+                 System.out.println("Now its time to cash in your chips");
+                break;
+        }
+        return x;
+    }
+    
+    public int lose_message(){
+        int x = 1 + r.nextInt(2);
+         switch(x){
+             case 1:
+                System.out.println("Awc'mon, take a chance!");
+                break;
+            case 2:
+                 System.out.println("Oh, you're going for broke, huh?");
+                break;
+        }
+         return x;
+    }
+    //use y to specify the random value
+     public int rand(int y){
+        int x =1+ r.nextInt(y);
+        return x;
+    }
+    static void display(int x[]){
+        for(int val:x)
+            System.out.printf("\n%d\n\n", val++);
+    }
+    static void math$(int x[]){
+        for(int val=0;val<x.length;val++)
+            System.out.printf("\n%d\n",x[val]*=2);
+    }
+    void print(String x){
+        String a = String.format("%s", x);
+        System.out.println(a);
+    }
+    static void average(int[] array1){
+        int total=0; 
+            for(int val:array1){
+                total+=val;
+            }
+            int average = total/array1.length;
+          System.out.printf("The average is %d\n", average);
+            
+        }
+ //finds the minimum value in a large array
+      void minimumGradeArray(int array[]){
+        int min = array[0];
+        for(int val:array){
+            if(val <min)
+                min = val;
+        }
+       System.out.printf("The minimum grade is %d\n", min); 
+    }
+    //finds the highest value in an array
+    void highGradeArray(int[] array){
+       int high = array[0];
+       for(int val: array){
+           if(val > high)
+               high = val;
+       }
+       System.out.printf("The highest grade is %d\n", high);
+   }
+  // displays the grade distribution using a bar of asterisks
+    void gradeDistributionArray(int[] array1){
+        System.out.println("Grade Distribution");
+        int array[] = new int[11];
+        for(int val:array1)
+           ++array[val/10]; 
+       for(int c=0; c<array.length;c++){
+           if(c==10)
+               System.out.printf("%5d: ", 100);
+           else
+              System.out.printf(" %02d-%02d",c*10,c*10+9); 
+           
+           for(int stars=0; stars<array[c];stars++)
+               System.out.print("*");
+           
+           System.out.println();
+       }
+   }
+     void displaySumOfArrayElementsIna2DimArray(){
+      int sum = rollDice();
+    //  System.out.printf(" %d ",sum);
+     
+      /**for(int r=0; r <a.length;r++){
+          for(int c=0; c<a[r].length;c++)
+              System.out.printf(" %d ", a[r][c]);
+          System.out.println();
+      }        **/
+      int a[][] = {{10,10},{10,10}};
+      int total = 0;
+      for(int v=0;v<a.length;v++){
+         for(int c=0; c<a[v].length;c++){
+              System.out.printf(" %d  ",a[v][c]);
+             
+         }
+          System.out.printf("\t%d ",getSum(a[v]));
+         System.out.println();
+      }
+      
+   }
+      public int getSum(int x[]){
+       int total=0;
+       for(int g:x)
+           total+=g;
+       return total;
+   }
+      public int largestSentinelValue(){
+          int x; int lval=0;
+          do{
+          x = input.nextInt();
+          if(x>lval)
+              lval=x;
+          }
+          while(x!=0);
+          return lval;
+      }
+      void storeInputIntoArray(int x[],int fu){//declare the counter
+          for(int i = 0; i<x.length; i++){
+              x[i]=input.nextInt();
+          }
+          for(int v:x)
+              System.out.println(v+" ");
+      }
+      void createArray(int dim[]){
+        for(int i=0;i<100;i++)
+            dim[i]+=i;
+        for(int val:dim)
+             System.out.printf(" %d ",val);
+    }
+      void negCount(){//finds the next -ve val
+        int max[] = {12,34,-55,66,77,88,9};
+        int neg = 0;
+        for(int i=0; i<max.length;i++){
+            if(max[i] < neg)
+                neg = max[i];
+        }
+        System.out.printf("The neg val is %d",neg);
+    }
+}
